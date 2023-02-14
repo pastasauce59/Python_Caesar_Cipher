@@ -5,13 +5,15 @@ shift = int(input("Type the shift number:\n"))
 
 #TODO-1: Create a function called 'encrypt' that takes the 'text' and 'shift' as inputs.
 def encrypt(text, shift):
+    #Creating a slice range with 'x', then slicing range from alphabet with 'y' and then adding it to alphabet to make 'new_alphabet'
+    #This is to avoid index being out of range when letters in the alphabet are close to the end, such as z.
     x = slice(shift)
     y = alphabet[x]
-    z = alphabet + y
+    new_alphabet = alphabet + y
     cipher_text = ""
     for letter in text:
-        shift_num = z.index(letter) + shift
-        cipher_text += z[shift_num]
+        shift_num = new_alphabet.index(letter) + shift
+        cipher_text += new_alphabet[shift_num]
     print(cipher_text)
 
     #TODO-2: Inside the 'encrypt' function, shift each letter of the 'text' forwards in the alphabet by the shift amount and print the encrypted text.  
