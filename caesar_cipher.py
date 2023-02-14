@@ -12,14 +12,14 @@ def encrypt(text, shift):
     for letter in text:
         shift_num = alphabet.index(letter) + shift
         cipher_text += alphabet[shift_num]
-    print(cipher_text)
+    print(f"The encoded text is: {cipher_text}")
 
 def decrypt(text, shift):
     decipher_text = ""
     for letter in text:
         shift_num = alphabet.index(letter) - shift
         decipher_text += alphabet[shift_num]
-    print(decipher_text)
+    print(f"The decoded text is: {decipher_text}")
 
 
 if direction.lower() == "encode":
