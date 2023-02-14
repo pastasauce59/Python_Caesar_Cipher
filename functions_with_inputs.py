@@ -19,3 +19,6 @@ def my_function(a, b, c):
     print(f"Finally this is {c}")
 
 my_function(c=2, a=1, b=3)
+#The parameters are out of the order they are originally placed in the function but are specified what each parameter should equal.
+
+print(73 % 4)
