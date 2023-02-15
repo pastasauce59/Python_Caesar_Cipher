@@ -13,13 +13,18 @@ while restart:
 
         def caesar(text, shift, direction):
             cipher_text = ""
-            for letter in text:
-                if direction.lower() == "encode":
-                    shift_num = alphabet.index(letter) + shift
-                    cipher_text += alphabet[shift_num]
-                elif direction.lower() == "decode":
-                    shift_num = alphabet.index(letter) - shift
-                    cipher_text += alphabet[shift_num]
+            #This clever piece of logic below will divide any shift number greater than 26 into a remainder that will fit inside the alphabet list above.
+            shift = shift % 26
+            for char in text:
+                if char in alphabet:
+                    if direction.lower() == "encode":
+                        shift_num = alphabet.index(char) + shift
+                        cipher_text += alphabet[shift_num]
+                    elif direction.lower() == "decode":
+                        shift_num = alphabet.index(char) - shift
+                        cipher_text += alphabet[shift_num]
+                else:
+                    cipher_text += char
             print(f"Your {direction}d message is: {cipher_text}")
 
         caesar(text, shift, direction)
